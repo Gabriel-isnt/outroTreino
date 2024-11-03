@@ -1,10 +1,12 @@
+import java.util.Random;
 import java.util.Scanner;
 
 
 public class principal{
         public static void main(String[] args){
-
+                
                 Scanner sc = new Scanner(System.in);
+                Random rd = new Random();
 
                 System.out.print("Me fale seu nome: ");
                 String nome = sc.next();
@@ -12,24 +14,17 @@ public class principal{
                 Personagem jogador = new Personagem(nome, 100, 0);
                 Personagem inimigo = new Personagem("boboca", 30, 0);
 
-                for(int a = 0; a < 20; a++){
-                        jogador.getInventario()[a] = "vazio";
-                } 
-
-
+                
                 // testando funcionalidades, não leve em consideração essa parte
-                jogador.coletarItem("espada");
-                inimigo.coletarItem("arco e flecha");                
-
-                jogador.recuperaVida(10);
-                System.out.printf("escudo jogador: %d %n", jogador.getEscudo());
-                jogador.tomaDano(7);
-                System.out.printf("vida jogador: %d %n", jogador.getVida());   
-                System.out.printf("escudo jogador: %d", jogador.getEscudo());             
-
+                
+                
                 sc.close();
         }
+
+        
+        public static 
 }
+
 
 
 class Personagem{
@@ -66,6 +61,11 @@ class Personagem{
 
         public String[] getInventario(){
                 return inventario;
+        }
+
+
+        public boolean getEstaVivo(){
+                return this.estaVivo;
         }
 
 
@@ -112,6 +112,7 @@ class Personagem{
                 if(this.vida <= 0){
                         this.estaVivo = false;
                 }
+                
         }
 
 
@@ -124,18 +125,19 @@ class Personagem{
 
                 for(int i = 0; i < 20; i++){
                         
-                        if(this.inventario[i] != "vazio"){
+                        if(this.inventario[i] == null){
+                                System.out.printf("%s adicionado %n", item);
                                 this.inventario[i] = item;
                                 return;
                         }
-                }       
-
+                        
+                }     
+                
                 System.out.println("inventário cheio");
+                
+                
         }
 
 
 
 }
-
-
-
