@@ -1,4 +1,5 @@
 import java.util.Random;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 
@@ -134,10 +135,40 @@ class Personagem{
                 }     
                 
                 System.out.println("inventário cheio");
-                
-                
         }
 
-
-
 }
+
+
+class Cidade{
+        // private Ferreiro ferreiro;
+        // private Loja loja;
+        private ArrayList<Npc> npc;
+        
+        public Cidade(Npc npc){
+                this.npc = new ArrayList<>(); 
+        }
+
+        // terminar depois, fiquei com uma preguiça de programar agora ;-;
+        
+}
+
+
+
+
+class Npc{
+        private String nome;
+        
+        public Npc(String nome){
+                this.nome = nome;
+        }
+        
+       // depois fazer os dialogos, tenho preguiça agora 
+}
+
+
+
+
+
+
+
